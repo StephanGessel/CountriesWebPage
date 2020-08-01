@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml" xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/eaa3497687.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <title>CountriesPage</title>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Countries Table</h1>
+        </div>
+    </header>
+    <div class="wrapper" id="app">
+        <section>
+            <div class="container">
+                <input type="search" type="text" v-model="input" placeholder="Search for country..."/>
+                <div class="dropdown" @click="toggleDrop">
+                    <button><h3>{{selected}}</h3><i class="fas fa-angle-down"></i></button>
+                    <ul :class="{ active: dropDown }">
+                        <li v-for="region in regions" @click="setRegion(region)">{{region}}</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <section>
+            <div class="container countries">
+                <template v-for="country in countries">
+                    <template v-if="selected == 'All' && input == ''">
+                        <div class="country" :class="{ hidden: false }" @click="openCard(country.name)">
+                            <div class="country-header">
+                                <img :src=country.flag :alt=country.name>
+                            </div>
+                            <div class="country-body">
+                                <h3>{{country.name}}</h3>
+                                <p><strong>Population: </strong>{{country.population}}</p>
+                                <p><strong>Region: </strong>{{country.region}}</p>
+                                <p><strong>Capital: </strong>{{country.capital}}</p>
+                            </div>
+                        </div>
+                    </template>
+                    <template v-else-if="selected == 'All' && country.name.toLowerCase().includes(input.toLowerCase())">
+                        <div class="country" :class="{ hidden: false }" @click="openCard(country.name)">
+                            <div class="country-header">
+                                <img :src=country.flag :alt=country.name>
+                            </div>
+                            <div class="country-body">
+                                <h3>{{country.name}}</h3>
+                                <p><strong>Population: </strong>{{country.population}}</p>
+                                <p><strong>Region: </strong>{{country.region}}</p>
+                                <p><strong>Capital: </strong>{{country.capital}}</p>
+                            </div>
+                        </div>
+                    </template>
+                    <template v-else-if="country.region == selected && input == ''">
+                        <div class="country" :class="{ hidden: false }" @click="openCard(country.name)">
+                            <div class="country-header">
+                                <img :src=country.flag :alt=country.name>
+                            </div>
+                            <div class="country-body">
+                                <h3>{{country.name}}</h3>
+                                <p><strong>Population: </strong>{{country.population}}</p>
+                                <p><strong>Region: </strong>{{country.region}}</p>
+                                <p><strong>Capital: </strong>{{country.capital}}</p>
+                            </div>
+                        </div>
+                    </template>
+                    <template v-else-if="country.region == selected && country.name.toLowerCase().includes(input.toLowerCase())">
+                        <div class="country" :class="{ hidden: false }" @click="openCard(country.name)">
+                            <div class="country-header">
+                                <img :src=country.flag :alt=country.name>
+                            </div>
+                            <div class="country-body">
+                                <h3>{{country.name}}</h3>
+                                <p><strong>Population: </strong>{{country.population}}</p>
+                                <p><strong>Region: </strong>{{country.region}}</p>
+                                <p><strong>Capital: </strong>{{country.capital}}</p>
+                            </div>
+                        </div>
+                    </template>
+                </template>
+            </div>
+        </section>
+        <div class="modal-container" :style="{ display: [ displayCard ? 'block' : 'none'] }">
+            <button class="btn-close" @click="closeCard"><i class="fas fa-arrow-left"></i></button>
+            <div class="container">
+                <img :src=countryInfo.flag :alt=countryInfo.name>
+                <div class="modal-body country-body">
+                    <h3>{{countryInfo.name}}</h3>
+                    <p><strong>Population: </strong>{{countryInfo.population}}</p>
+                    <p><strong>Region: </strong>{{countryInfo.region}}</p>
+                    <p><strong>Sub-Region: </strong>{{countryInfo.subRegion}}</p>
+                    <p><strong>Capital: </strong>{{countryInfo.capital}}</p>
+                    <p><strong>Area: </strong>{{countryInfo.area}} km</p>
+                    <p><strong>Time Zones: </strong>
+                        <template v-for="timezone in countryInfo.timeZone">
+                            [{{timezone}}]
+                        </template>
+                    </p>
+                    <p><strong>Borders: </strong>
+                        <template v-for="border in countryInfo.borders">
+                            "{{border}}"
+                        </template>
+                    </p>
+                    <p><strong>Currencies: </strong>
+                        <template v-for="currency in countryInfo.currencies">
+                            {{currency.name}}[{{currency.code}}]
+                        </template>
+                    </p>
+                    <p><strong>Languages: </strong>
+                        <template v-for="language in countryInfo.languages">
+                            "{{language}}"
+                        </template>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="frontend.js"></script>
+</body>
+</html>

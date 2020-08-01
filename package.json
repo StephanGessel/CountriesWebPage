@@ -1,0 +1,28 @@
+{
+  "name": "countriespage",
+  "version": "1.0.0",
+  "description": "Countries Table",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "keywords": [
+    "js",
+    "html",
+    "css",
+    "nodejs",
+    "vuejs",
+    "rest",
+    "api"
+  ],
+  "author": "Stephan Gessel",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "node-fetch": "^2.6.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
