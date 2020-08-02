@@ -7,16 +7,25 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="style.css">
     <script src="https://kit.fontawesome.com/eaa3497687.js" crossorigin="anonymous"></script>
-    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
-    <title>CountriesPage</title>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="favicon_io/site.webmanifest">
+    <title>Countries Table</title>
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+    </style>
 </head>
 <body>
     <header>
         <div class="container">
-            <h1>Countries Table</h1>
+            <h1>Countries Table  <i class="fas fa-globe"></i></h1>
         </div>
     </header>
-    <div class="wrapper" id="app">
+    <div class="wrapper" id="app" v-cloak>
         <section>
             <div class="container">
                 <input type="search" type="text" v-model="input" placeholder="Search for country..."/>
@@ -37,7 +46,7 @@
                                 <img :src=country.flag :alt=country.name>
                             </div>
                             <div class="country-body">
-                                <h3>{{country.name}}</h3>
+                                <h2>{{country.name}}</h2>
                                 <p><strong>Population: </strong>{{country.population}}</p>
                                 <p><strong>Region: </strong>{{country.region}}</p>
                                 <p><strong>Capital: </strong>{{country.capital}}</p>
@@ -50,7 +59,7 @@
                                 <img :src=country.flag :alt=country.name>
                             </div>
                             <div class="country-body">
-                                <h3>{{country.name}}</h3>
+                                <h2>{{country.name}}</h2>
                                 <p><strong>Population: </strong>{{country.population}}</p>
                                 <p><strong>Region: </strong>{{country.region}}</p>
                                 <p><strong>Capital: </strong>{{country.capital}}</p>
@@ -63,7 +72,7 @@
                                 <img :src=country.flag :alt=country.name>
                             </div>
                             <div class="country-body">
-                                <h3>{{country.name}}</h3>
+                                <h2>{{country.name}}</h2>
                                 <p><strong>Population: </strong>{{country.population}}</p>
                                 <p><strong>Region: </strong>{{country.region}}</p>
                                 <p><strong>Capital: </strong>{{country.capital}}</p>
@@ -76,7 +85,7 @@
                                 <img :src=country.flag :alt=country.name>
                             </div>
                             <div class="country-body">
-                                <h3>{{country.name}}</h3>
+                                <h2>{{country.name}}</h2>
                                 <p><strong>Population: </strong>{{country.population}}</p>
                                 <p><strong>Region: </strong>{{country.region}}</p>
                                 <p><strong>Capital: </strong>{{country.capital}}</p>

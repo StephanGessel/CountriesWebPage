@@ -12,14 +12,20 @@
 }*/
 
 html, body {
-    font-family: Roboto Mono;
+    font-family: 'Rubik', sans-serif;
     width: 100%;
     background-color: whitesmoke;
 }
 
+
 header {
     background-color: white;
     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+header h1 {
+    margin: 20px;
+    color: #2196f3;
+    justify-content: space-between;
 }
 
 section {
