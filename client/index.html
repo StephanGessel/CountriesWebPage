@@ -20,12 +20,14 @@
     </style>
 </head>
 <body>
+    <!--Header-->
     <header>
         <div class="container">
             <h1>Countries Table  <i class="fas fa-globe"></i></h1>
         </div>
     </header>
     <div class="wrapper" id="app" v-cloak>
+        <!--Search bar-->
         <section>
             <div class="container">
                 <input type="search" type="text" v-model="input" placeholder="Search for country..."/>
@@ -37,6 +39,7 @@
                 </div>
             </div>
         </section>
+        <!--Countries Table-->
         <section>
             <div class="container countries">
                 <template v-for="country in countries">
@@ -95,6 +98,7 @@
                 </template>
             </div>
         </section>
+        <!--Pop-Up Info-->
         <div class="modal-container" :style="{ display: [ displayCard ? 'block' : 'none'] }">
             <button class="btn-close" @click="closeCard"><i class="fas fa-arrow-left"></i></button>
             <div class="container">
